@@ -7,7 +7,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "deploy": "etzhayyim deploy --no-svelte",
-    "smoke": "curl -s https://ses.etzhayyim.com/health"
+    "smoke": "curl -s https://ses.itonami.app/health"
   },
   "dependencies": {
     "hono": "^4.6.0"

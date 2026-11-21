@@ -1,4 +1,4 @@
-// Dispatcher — ses.etzhayyim.com → bpmn-dispatcher (K8s ClusterIP) →
+// Dispatcher — ses.itonami.app → bpmn-dispatcher (K8s ClusterIP) →
 // LangGraph Server ses-langgraph.mitama-udf.svc.cluster.local:8000
 // (ADR-2605120000 / ADR-2605080600).
 //

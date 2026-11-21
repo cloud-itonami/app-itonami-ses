@@ -158,11 +158,11 @@
     (let [n (:nanoid @kotodama)]
       (is (= n (get-in @wrangler [:vars :APP_NANOID])))
       (is (= (str "kotodama-" n) (:name @wrangler)))))
-  (testing "ses.etzhayyim.com route が wrangler に在る"
+  (testing "ses.itonami.app route が wrangler に在る"
     (let [patterns (->> (get @wrangler :routes)
                         (map :pattern)
                         set)]
-      (is (contains? patterns "ses.etzhayyim.com/*")
+      (is (contains? patterns "ses.itonami.app/*")
           "vanity host route が無い — identity の DID host と配備がずれる"))))
 
 (deftest dispatcher-forwards-with-internal-trust

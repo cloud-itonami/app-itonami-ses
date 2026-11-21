@@ -17,8 +17,8 @@ Two things are runnable from this repo today, both entirely local:
 
 What is **not** operable from here, and why:
 
-- **Anything against the real backends.** `ses.etzhayyim.com`,
-  `s3s4nk3n.etzhayyim.com`, `ses-api.etzhayyim.com`,
+- **Anything against the real backends.** `ses.itonami.app`,
+  `s3s4nk3n.itonami.app`, `ses-api.etzhayyim.com`,
   `dispatcher.etzhayyim.com` and `mcp.etzhayyim.com` all return no DNS answer
   (step 0). `npm run smoke` cannot pass; a deploy would publish to hosts that
   do not exist yet.
@@ -35,7 +35,7 @@ Do this first; it decides whether any later result means what you think.
 
 ```bash
 for h in etzhayyim.com atproto.etzhayyim.com \
-         ses.etzhayyim.com s3s4nk3n.etzhayyim.com \
+         ses.itonami.app s3s4nk3n.itonami.app \
          ses-api.etzhayyim.com dispatcher.etzhayyim.com mcp.etzhayyim.com; do
   printf '%-32s %s\n' "$h" "$(dig +short "$h" | tr '\n' ' ')"
 done
@@ -47,8 +47,8 @@ and all three of its backends do not:
 ```
 etzhayyim.com                    104.21.51.111 172.67.179.128
 atproto.etzhayyim.com            104.21.51.111 172.67.179.128
-ses.etzhayyim.com
-s3s4nk3n.etzhayyim.com
+ses.itonami.app
+s3s4nk3n.itonami.app
 ses-api.etzhayyim.com
 dispatcher.etzhayyim.com
 mcp.etzhayyim.com
@@ -172,7 +172,7 @@ at `<SES_MCP_URL>/mcp` → rendered page. **Restore `wrangler.jsonc` afterwards*
 
 `npm run deploy` runs `etzhayyim deploy --no-svelte`, a CLI that is not in this
 repo and not on the west manifest. A direct `wrangler deploy` would publish the
-step-3 artifact to `ses.etzhayyim.com/*` and `s3s4nk3n.etzhayyim.com/*`.
+step-3 artifact to `ses.itonami.app/*` and `s3s4nk3n.itonami.app/*`.
 
 Do not, yet. The artifact exposes two XRPC surfaces that authenticate nobody
 (see the table in [../README.md](../README.md)), and the surface `AGENTS.md`
