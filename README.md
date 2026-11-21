@@ -21,10 +21,10 @@ commands are in [docs/operator-quickstart.md](docs/operator-quickstart.md).
 
 **None of this repo's own hosts resolve in DNS.** `etzhayyim.com` and sibling
 services (`atproto.`, `authn.`) answer from Cloudflare; the two routes declared
-in `wrangler.jsonc` (`ses.etzhayyim.com`, `s3s4nk3n.etzhayyim.com`) and *all
+in `wrangler.jsonc` (`ses.itonami.app`, `s3s4nk3n.itonami.app`) and *all
 three* backends this code talks to (`dispatcher.`, `mcp.`, `ses-api.`) return
 no answer. Nothing here is serving traffic, and nothing it would call is
-reachable. `npm run smoke` — which curls `https://ses.etzhayyim.com/health` —
+reachable. `npm run smoke` — which curls `https://ses.itonami.app/health` —
 cannot succeed today.
 
 **`AGENTS.md` describes the monorepo, not this repo.** It points at
@@ -94,4 +94,13 @@ ledger or facts plane.
   `svelte/` in place; the migration itself is a separate, tracked wave.
 - **Decide which surface is authoritative before deploying anything.** Shipping
   the current tree would put two unauthenticated XRPC surfaces on
-  `ses.etzhayyim.com`.
+  `ses.itonami.app`.
+
+## Divergence from upstream (2026-11-21, JUN-1410)
+
+The owner decided to unify the domains under `itonami.app`, so the wrangler routes and the
+`did:web` identifier moved from `etzhayyim.com` to `itonami.app`. This app is not deployed and the old
+identifier never resolved. The new hosts (`s3s4nk3n.itonami.app`, `ses.itonami.app`) resolve through the `itonami.app`
+wildcard record but answer 522, because no Worker is bound (measured 2026-11-21).
+
+Unchanged: other services' hostnames, the lexicon namespace, and `docs/adr/` (the record of that time).
